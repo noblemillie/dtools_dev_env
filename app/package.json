@@ -3,7 +3,7 @@
   "version": "1.4.1",
   "description": "A timesheet keeping app based on electron",
   "main": "main/index.js",
-  "author": "Burkhard Reffeling",
+  "author": "Phi Data Kappa",
   "license": "MIT",
   "homepage": "https://github.com/noblemillie/dtools_dev_env",
   "repository": {
