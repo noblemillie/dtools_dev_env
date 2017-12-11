@@ -1,6 +1,6 @@
 import { jsonAggregator } from '../../shared/helpers/fetch';
-import getIssues from './getIssues';
-import getMilestones from './getMilestones';
+import getDataset from './getDataset';
+import getDatasets from './getDatasets';
 
 export default function importProjects(accessToken, repoFullName) {
   return Promise.all([

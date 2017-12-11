@@ -1,3 +1,4 @@
+require('dotenv').config();      // path to client_id, client_secret
 import { app, BrowserWindow, Menu, shell } from 'electron';
 import path from 'path';
 
@@ -24,8 +25,8 @@ export default function createWindow({ uri = '/' } = {}) {
 
   browserWindow = new BrowserWindow({
     show: false,
-    width: 1024,
-    height: 728,
+    width: 800,
+    height: 468,
   });
 
   function handleRedirect(e, url) {
@@ -161,7 +162,7 @@ export default function createWindow({ uri = '/' } = {}) {
       submenu: [{
         label: 'Learn More',
         click() {
-          shell.openExternal('http://burgiblog.com/dataset.tools/');
+          shell.openExternal('http://github.com/noblemillie/dtools_dev_env/');
         },
       }, {
         label: 'Documentation',

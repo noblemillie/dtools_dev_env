@@ -2,10 +2,10 @@
 /* eslint-disable no-unused-vars */
 import assert from 'assert';
 import { ALIASED } from '../../actions';
-import { aliases as githubAliases } from '../../actions/github';
+import { aliases as dataworldAliases } from '../../actions/dataworld';
 
 const aliases = {
-  ...githubAliases,
+  ...dataworldAliases,
 };
 
 const triggerAlias = store => next => action => {

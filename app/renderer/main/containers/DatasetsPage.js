@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Reports from '../components/Reports';
+import Reports from '../components/Datasets';
 // import * as JobActions from '../../../shared/actions/job';
 
 function mapStateToProps({ job }) {
@@ -11,4 +11,4 @@ function mapStateToProps({ job }) {
 //   return bindActionCreators(JobActions, dispatch);
 // }
 
-export default connect(mapStateToProps/*, mapDispatchToProps*/)(Reports);
+export default connect(mapStateToProps/*, mapDispatchToProps*/)(Datasets);

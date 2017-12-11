@@ -34,16 +34,9 @@ export function setRemindersWeekdays(days) {
   };
 }
 
-export function setPomodoroEnabled(flag) {
+export function setDataworldEnabled(flag) {
   return {
-    type: SET_POMODORO_ENABLED,
-    payload: flag,
-  };
-}
-
-export function setGithubEnabled(flag) {
-  return {
-    type: SET_GITHUB_ENABLED,
+    type: SET_DATAWORLD_ENABLED,
     payload: flag,
   };
 }

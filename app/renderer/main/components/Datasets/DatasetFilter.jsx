@@ -3,7 +3,7 @@ import { reduxForm, Field } from 'redux-form';
 import { Grid, Cell } from 'react-mdl';
 import adapter, { DATE, RADIO_GROUP } from '../../../shared/forms/adapter';
 
-function ReportFilter({ handleSubmit }) {
+function DatasetFilter({ handleSubmit }) {
   function onChange() {
     setTimeout(handleSubmit, 0);
   }
@@ -33,4 +33,4 @@ ReportFilter.propTypes = {
 export default reduxForm({
   form: 'reportFilter',
   adapter,
-})(ReportFilter);
+})(DatasetFilter);

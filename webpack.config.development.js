@@ -12,19 +12,19 @@ const config = {
   entry: {
     main: [
       'babel-polyfill',
-      'webpack-hot-middleware/client?path=http://localhost:3000/__webpack_hmr',
+      'webpack-hot-middleware/client?path=http://localhost:8080/__webpack_hmr',
       './app/renderer/main/index',
     ],
     menubar: [
       'babel-polyfill',
-      'webpack-hot-middleware/client?path=http://localhost:3000/__webpack_hmr',
+      'webpack-hot-middleware/client?path=http://localhost:8080/__webpack_hmr',
       './app/renderer/menubar/index',
     ],
   },
 
   output: {
     ...baseConfig.output,
-    publicPath: 'http://localhost:3000/dist/',
+    publicPath: 'http://localhost:8080/dist/',
   },
 
   module: {

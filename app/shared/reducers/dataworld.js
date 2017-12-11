@@ -1,10 +1,10 @@
 /* eslint-disable no-param-reassign */
 import {
-  AUTHENTICATE_GITHUB,
-  GET_GITHUB_REPOS,
-  TRACK_GITHUB_REPO,
-  UNTRACK_GITHUB_REPO,
-} from '../actions/github';
+  AUTHENTICATE_DATAWORLD,
+  GET_DATAWORLD_REPOS,
+  GET_DATAWORLD_DOWNLOAD,
+  GET_DATAWORLD_DATASET,
+} from '../actions/dataworld';
 
 const initialState = {
   repos: [],
@@ -17,17 +17,15 @@ function mapRepo({ id, full_name }) {
   };
 }
 
-export default function github(state = initialState, action) {
+export default function dataworld(state = initialState, action) {
   const { type, payload, error, meta } = action;
 
   switch (type) {
-    case AUTHENTICATE_GITHUB:
+    case AUTHENTICATE_DATAWORLD:
       if (error) {
         return {
           ...state,
           error: true,
-          twofa: !!payload.twofa,
-          twofaFailed: !!state.twofa,
           tokenExists: !!payload.tokenExists,
         };
       }
@@ -35,15 +33,13 @@ export default function github(state = initialState, action) {
       return {
         ...state,
         error: false,
-        twofa: false,
-        twofaFailed: false,
         tokenExists: false,
         accessToken: payload.token,
         scope: payload.scopes,
         username: meta.username,
       };
 
-    case GET_GITHUB_REPOS: {
+    case GET_DATAWORLD_REPOS: {
       if (error) return state;
 
       const repos = payload.map(repo => {
@@ -65,35 +61,21 @@ export default function github(state = initialState, action) {
       };
     }
 
-    case TRACK_GITHUB_REPO: {
-      const repos = state.repos.map(repo => {
-        if (repo.id === action.payload.id) {
-          repo.tracked = true;
-        }
+    // case UPLOAD_DATAWORLD_REPO: {
+    //   const repos = state.repos.map(repo => {
+    //     if (repo.id === action.payload.id) {
+    //       repo.tracked = true;
+    //     }
+    //
+    //     return repo;
+    //   });
+    //
+    //   return {
+    //     ...state,
+    //     repos,
+    //   };
+    // }
 
-        return repo;
-      });
-
-      return {
-        ...state,
-        repos,
-      };
-    }
-
-    case UNTRACK_GITHUB_REPO: {
-      const repos = state.repos.map(repo => {
-        if (repo.id === action.payload.id) {
-          repo.tracked = false;
-        }
-
-        return repo;
-      });
-
-      return {
-        ...state,
-        repos,
-      };
-    }
 
     default:
       return state;

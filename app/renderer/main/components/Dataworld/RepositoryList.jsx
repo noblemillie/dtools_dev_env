@@ -3,17 +3,17 @@ import VirtualizedSelect from 'react-virtualized-select';
 
 class RepositoryList extends Component {
   static propTypes = {
-    requestGetGithubRepos: PropTypes.func.isRequired,
-    trackGithubRepo: PropTypes.func.isRequired,
-    github: PropTypes.object.isRequired,
+    requestGetDataworldRepos: PropTypes.func.isRequired,
+    trackDataworldRepo: PropTypes.func.isRequired,
+    dataworld: PropTypes.object.isRequired,
   }
 
   componentDidMount() {
-    this.props.requestGetGithubRepos(this.props.github.accessToken);
+    this.props.requestGetDataworldRepos(this.props.dataworld.accessToken);
   }
 
   render() {
-    const untrackedRepos = this.props.github.repos
+    const untrackedRepos = this.props.dataworld.repos
       .filter(repo => !repo.tracked)
       .map(({ id, fullName }) => ({
         value: id,
@@ -25,8 +25,8 @@ class RepositoryList extends Component {
         <h3>Repos</h3>
         <VirtualizedSelect
           name="repos"
-          options={untrackedRepos}
-          onChange={({ value }) => this.props.trackGithubRepo(value)}
+          options=""
+          onChange={({ value }) => this.props.trackDataworldRepo(value)}
         />
       </div>
     );

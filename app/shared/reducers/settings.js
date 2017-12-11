@@ -4,8 +4,7 @@ import {
   SET_REMINDERS_FROM_TIME,
   SET_REMINDERS_TO_TIME,
   SET_REMINDERS_WEEKDAYS,
-  SET_POMODORO_ENABLED,
-  SET_GITHUB_ENABLED,
+  SET_DATAWORLD_ENABLED,
 } from '../actions/settings';
 
 const initialState = {
@@ -21,8 +20,8 @@ const initialState = {
     6: false,
     7: false,
   },
-  pomodoroEnabled: false,
-  githubEnabled: true,
+
+  dataworldEnabled: true,
 };
 
 export default function settings(state = initialState, action) {
@@ -55,17 +54,10 @@ export default function settings(state = initialState, action) {
       };
     }
 
-    case SET_POMODORO_ENABLED: {
+    case SET_DATAWORLD_ENABLED: {
       return {
         ...state,
-        pomodoroEnabled: !!action.payload,
-      };
-    }
-
-    case SET_GITHUB_ENABLED: {
-      return {
-        ...state,
-        githubEnabled: !!action.payload,
+        dataworldEnabled: !!action.payload,
       };
     }
 

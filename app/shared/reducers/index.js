@@ -4,7 +4,7 @@ import { reducer as form } from 'redux-form';
 import system from './system';
 import job from './job';
 import project from './project';
-import github from './github';
+import dataworld from './dataworld';
 import settings from './settings';
 
 export default function getRootReducer(scope = 'main') {

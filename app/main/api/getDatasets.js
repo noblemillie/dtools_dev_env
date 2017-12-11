@@ -1,11 +1,11 @@
 import fetchPaginated from '../../shared/helpers/fetchPaginated';
 import { iterator, status, json, jsonAggregator } from '../../shared/helpers/fetch';
 
-export default function getMilestones(accessToken, repoFullName) {
-  return fetchPaginated(`https://api.github.com/repos/${repoFullName}/milestones?state=all`, {
+export default function getDatasets(accessToken, user, datasets) {
+  return fetchPaginated(`https://api.data.world/v0/${user}/${datasets}/own`, {
     method: 'GET',
     headers: {
-      Authorization: `token ${accessToken}`,
+      Authorization: `Bearer ${accessToken}`,
     },
   })
   .then(iterator(status))
